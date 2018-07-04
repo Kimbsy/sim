@@ -24,16 +24,16 @@ public class BaseSimFrame extends JFrame implements SimFrame {
 
     private Sim sim;
     private int frameDelay;
-    private BufferedImage backBuffer;
-    private Graphics2D g2d;
-    private AffineTransform identity;
+    public BufferedImage backBuffer;
+    public Graphics2D g2d;
+    public AffineTransform identity;
 
     /**
      * Class constructor specifying the parent {@link Sim}.
      *
      * @param sim The {@link Sim} object,
      */
-    BaseSimFrame(Sim sim, String title) {
+    public BaseSimFrame(Sim sim, String title) {
         super(title);
         this.sim = sim;
         this.frameDelay = sim.getFrameDelay();
@@ -65,6 +65,9 @@ public class BaseSimFrame extends JFrame implements SimFrame {
         g.drawImage(backBuffer, 0, 0, this);
 
         g2d.setTransform(identity);
+
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(0, 0, sim.getWidth(), sim.getHeight());
 
         for (Sprite sprite : sim.getSprites()) {
             if (sprite.isVisible()) {

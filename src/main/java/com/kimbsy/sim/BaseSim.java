@@ -29,6 +29,11 @@ public class BaseSim implements Sim {
     }
 
     @Override
+    public void setSimFrame(SimFrame simFrame) {
+        this.simFrame = simFrame;
+    }
+
+    @Override
     public Thread getSimLoop() {
         return simLoop;
     }
@@ -72,7 +77,6 @@ public class BaseSim implements Sim {
     @Override
     public void init() {
         initSprites();
-        simFrame = new BaseSimFrame(this, getTitle());
         simLoop = new Thread(simFrame);
         simLoop.start();
         simFrame.init();

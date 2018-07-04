@@ -27,6 +27,13 @@ public interface Sim {
     SimFrame getSimFrame();
 
     /**
+     * Set the reference to the simulation {@link JFrame}.
+     *
+     * @param simFrame the {@link SimFrame object}.
+     */
+    void setSimFrame(SimFrame simFrame);
+
+    /**
      * Get the reference to the main simulation {@link Thread}.
      *
      * @return The {@link Thread} object.
